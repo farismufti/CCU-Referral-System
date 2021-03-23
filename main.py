@@ -26,5 +26,27 @@ with open(fileName, 'r') as data:
         patientsList.append(p)
 
 for i in patientsList:
-    print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
-          i.getWeightClassification())
+    if i.getWeightClassification() == "Obese":
+        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
+              i.getWeightClassification())
+
+print("---------------------------------------------------------------------------------")
+
+for i in patientsList:
+    if i.getWeightClassification() == "Underweight":
+        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
+              i.getWeightClassification())
+
+print("---------------------------------------------------------------------------------")
+
+for i in patientsList:
+    if i.getWeightClassification() == "Overweight":
+        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
+              i.getWeightClassification())
+
+print("---------------------------------------------------------------------------------")
+
+for i in patientsList:
+    if i.getWeightClassification() == "Normal":
+        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
+              i.getWeightClassification())
