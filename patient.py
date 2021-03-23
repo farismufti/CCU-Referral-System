@@ -101,17 +101,17 @@ class Patient:
         if self.getBMI() < 18.5:
             weightClassification = "Underweight"
 
-        elif self.getBMI() >= 18.5 or self.getBMI() < 25:
+        elif 18.5 <= self.getBMI() < 25.0:
             weightClassification = "Normal"
 
-        elif self.getBodyBuild() == "Slim" and (self.getBMI() >= 25 or self.getBMI() < 28) \
-                or self.getBodyBuild() == "Regular" and (self.getBMI() >= 25 or self.getBMI() < 29) \
-                or self.getBodyBuild() == "Athletic" and (self.getBMI() >= 25 or self.getBMI() < 30):
+        elif self.getBodyBuild() == "Slim" and (self.getBMI() >= 25.0 or self.getBMI() < 28.0) \
+                or self.getBodyBuild() == "Regular" and (25.0 <= self.getBMI() < 29.0) \
+                or self.getBodyBuild() == "Athletic" and (25.0 <= self.getBMI() < 30.0):
             weightClassification = "Overweight"
 
-        elif (self.getBodyBuild() == "Slim" and self.getBMI() >= 28) \
-                or (self.getBodyBuild() == "Regular" and self.getBMI() >= 29) \
-                or (self.getBodyBuild() == "Athletic" and self.getBMI() >= 30):
+        elif (self.getBodyBuild() == "Slim" and self.getBMI() >= 28.0) \
+                or (self.getBodyBuild() == "Regular" and self.getBMI() >= 29.0) \
+                or (self.getBodyBuild() == "Athletic" and self.getBMI() >= 30.0):
             weightClassification = "Obese"
 
         else:
