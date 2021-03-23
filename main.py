@@ -25,28 +25,42 @@ with open(fileName, 'r') as data:
                     row[10], row[11], row[12])
         patientsList.append(p)
 
+lineCount = 0
 for i in patientsList:
     if i.getWeightClassification() == "Obese":
         print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
               i.getWeightClassification())
+        lineCount = lineCount + 1
+        if lineCount == 10:
+            print("---------------------------------------------------------------------------------")
+            lineCount = 0
 
-print("---------------------------------------------------------------------------------")
 
 for i in patientsList:
     if i.getWeightClassification() == "Underweight":
         print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
               i.getWeightClassification())
+        lineCount = lineCount + 1
+        if lineCount == 10:
+            print("---------------------------------------------------------------------------------")
+            lineCount = 0
 
-print("---------------------------------------------------------------------------------")
 
 for i in patientsList:
     if i.getWeightClassification() == "Overweight":
         print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
               i.getWeightClassification())
+        lineCount = lineCount + 1
+        if lineCount == 10:
+            print("---------------------------------------------------------------------------------")
+            lineCount = 0
 
-print("---------------------------------------------------------------------------------")
 
 for i in patientsList:
     if i.getWeightClassification() == "Normal":
         print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
               i.getWeightClassification())
+        lineCount = lineCount + 1
+        if lineCount == 10:
+            print("---------------------------------------------------------------------------------")
+            lineCount = 0
