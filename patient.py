@@ -33,26 +33,47 @@ class Patient:
     def setBodyBuild(self, bodyBuild):
         self.bodyBuild = bodyBuild
 
-    def isSmoker(self, isSmoker):
-        return self.isSmoker
+    def isSmoker(self):
+        x = False
+        if self.isSmoker != '':
+            x = True
+        return x
 
-    def isAsthmatic(self, isAsthmatic):
-        return self.isAsthmatic
+    def isAsthmatic(self):
+        x = False
+        if self.isAsthmatic != '':
+            x = True
+        return x
 
-    def isIntubated(self, isIntubated):
-        return self.isIntubated
+    def isIntubated(self):
+        x = False
+        if self.isIntubated != '':
+            x = True
+        return x
 
-    def hasHypertension(self, hasHypertension):
-        return self.hasHypertension
+    def hasHypertension(self):
+        x = False
+        if self.hasHypertension != '':
+            x = True
+        return x
 
-    def didRenalRT(self, didRenalRT):
-        return self.didRenalRT
+    def didRenalRT(self):
+        x = False
+        if self.didRenalRT != '':
+            x = True
+        return x
 
-    def didIntestinalSurgery(self, didIntestinalSurgery):
-        return self.didIntestinalSurgery
+    def didIntestinalSurgery(self):
+        x = False
+        if self.didIntestinalSurgery != '':
+            x = True
+        return x
 
-    def needsParenteralNutrition(self, needsParenteralNutrition):
-        return self.needsParenteralNutrition
+    def needsParenteralNutrition(self):
+        x = False
+        if self.needsParenteralNutrition != '':
+            x = True
+        return x
 
     def getName(self):
         return self.name
