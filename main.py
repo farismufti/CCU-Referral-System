@@ -5,6 +5,10 @@ from datetime import date
 fileName = "DADSA 2021 CWK B DATA COLLECTION.csv"
 patientData = []
 patientsList = []
+obeseMalesList = []
+obeseFemalesList = []
+underweightMalesList = []
+underweightFemalesList = []
 
 
 def calculateAge(date):
@@ -28,39 +32,73 @@ with open(fileName, 'r') as data:
 lineCount = 0
 for i in patientsList:
     if i.getWeightClassification() == "Obese":
-        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
+        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(),
+              "|| Weight Classification:",
               i.getWeightClassification())
         lineCount = lineCount + 1
         if lineCount == 10:
             print("---------------------------------------------------------------------------------")
             lineCount = 0
-
 
 for i in patientsList:
     if i.getWeightClassification() == "Underweight":
-        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
+        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(),
+              "|| Weight Classification:",
               i.getWeightClassification())
         lineCount = lineCount + 1
         if lineCount == 10:
             print("---------------------------------------------------------------------------------")
             lineCount = 0
-
 
 for i in patientsList:
     if i.getWeightClassification() == "Overweight":
-        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
+        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(),
+              "|| Weight Classification:",
               i.getWeightClassification())
         lineCount = lineCount + 1
         if lineCount == 10:
             print("---------------------------------------------------------------------------------")
             lineCount = 0
-
 
 for i in patientsList:
     if i.getWeightClassification() == "Normal":
-        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(), "|| Weight Classification:",
+        print("Patient Name:", i.getName(), "|| Age:", i.getAge(), "|| BMI:", i.getBMI(),
+              "|| Weight Classification:",
               i.getWeightClassification())
         lineCount = lineCount + 1
         if lineCount == 10:
             print("---------------------------------------------------------------------------------")
             lineCount = 0
+
+for i in patientsList:
+    if i.getSex() == 'M' and i.getWeightClassification() == "Obese":
+        obeseMalesList.append(i)
+
+    if i.getSex() == 'M' and i.getWeightClassification() == "Underweight":
+        underweightMalesList.append(i)
+
+    if i.getSex() == 'F' and i.getWeightClassification() == "Obese":
+        obeseFemalesList.append(i)
+
+    if i.getSex() == 'F' and i.getWeightClassification() == "Underweight":
+        underweightFemalesList.append(i)
+
+print("Worst 5 Obese Males:")
+for i in obeseMalesList:
+    print(i.getName())
+print("----------------")
+
+print("Worst 5 Obese Females:")
+for i in obeseFemalesList:
+    print(i.getName())
+print("----------------")
+
+print("Worst 5 Underweight Males:")
+for i in underweightMalesList:
+    print(i.getName())
+print("----------------")
+
+print("Worst 5 Underweight Females:")
+for i in underweightFemalesList:
+    print(i.getName())
+print("----------------")
