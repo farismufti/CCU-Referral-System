@@ -14,6 +14,7 @@ class Patient:
         self.didRenalRT = didRenalRT
         self.didIntestinalSurgery = didIntestinalSurgery
         self.needsParenteralNutrition = needsParenteralNutrition
+        BMI = 0
 
     def setName(self, name):
         self.name = name
@@ -92,3 +93,24 @@ class Patient:
 
     def getBodyBuild(self):
         return self.bodyBuild
+
+    def getBMI(self):
+        BMI = self.getWeight() / (self.getHeight() ** 2)
+        return round(float(BMI), 1)
+
+    def getWeightClassification(self):
+        if self.getBMI() < 18.5:
+            weightClassification = "Underweight"
+
+        elif self.getBMI() == 18.5 or self.getBMI() < 25:
+            weightClassification = "Normal"
+
+        elif self.getBodyBuild() == "Slim" and (self.getBMI() >= 25 or self.getBMI() < 28)\
+                or self.getBodyBuild() == "Regular" and (self.getBMI() >= 25 or self.getBMI() < 29)\
+                or self.getBodyBuild() == "Athletic" and (self.getBMI() >= 25 or self.getBMI() < 30):
+            weightClassification = "Overweight"
+
+        else:
+            weightClassification = "Obese"
+
+        return weightClassification
