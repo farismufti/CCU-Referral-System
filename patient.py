@@ -15,6 +15,7 @@ class Patient:
         self.didIntestinalSurgery = didIntestinalSurgery
         self.needsParenteralNutrition = needsParenteralNutrition
         self.BMI = self.getWeight() / (self.getHeight() ** 2)
+        self.referralPriority = 0
 
     def setName(self, name):
         self.name = name
@@ -118,3 +119,9 @@ class Patient:
             weightClassification = "Error"
 
         return weightClassification
+
+    def setReferralPriority(self, referralPriority):
+        self.referralPriority = referralPriority
+
+    def getReferralPriority(self):
+        return self.referralPriority
