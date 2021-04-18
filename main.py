@@ -9,6 +9,7 @@ obeseMalesList = []
 obeseFemalesList = []
 underweightMalesList = []
 underweightFemalesList = []
+patientReferralList = []
 
 
 def calculateAge(date):
@@ -102,3 +103,27 @@ print("Worst 5 Underweight Females:")
 for i in underweightFemalesList:
     print(i.getName())
 print("----------------")
+
+for i in patientsList:
+    i.setReferralPriority()
+
+for i in patientsList:
+    if i.getReferralPriority() == 1:
+        patientReferralList.append(i)
+
+for i in patientsList:
+    if i.getReferralPriority() == 2:
+        patientReferralList.append(i)
+
+for i in patientsList:
+    if i.getReferralPriority() == 3:
+        patientReferralList.append(i)
+
+for i in patientsList:
+    if i.getReferralPriority() == 4:
+        patientReferralList.append(i)
+
+print("Dietitian Referrals:")
+for i in patientReferralList:
+    if i.getReferralPriority() <= 3:
+        print(i.getName())
