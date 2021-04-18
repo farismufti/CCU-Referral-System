@@ -1,3 +1,6 @@
+from main import patientsList, patientReferralList
+
+
 class Patient:
     def __init__(self, name, age, sex, height, weight, bodyBuild, isSmoker, isAsthmatic, isIntubated, hasHypertension,
                  didRenalRT, didIntestinalSurgery, needsParenteralNutrition):
@@ -16,6 +19,7 @@ class Patient:
         self.needsParenteralNutrition = needsParenteralNutrition
         self.BMI = self.getWeight() / (self.getHeight() ** 2)
         self.referralPriority = 0
+        self.numOfConditions = 0
 
     def setName(self, name):
         self.name = name
@@ -120,8 +124,67 @@ class Patient:
 
         return weightClassification
 
-    def setReferralPriority(self, referralPriority):
-        self.referralPriority = referralPriority
+    def setNumOfConditions(self):
+        if self.getWeightClassification() == "Obese" or self.getWeightClassification() == "Underweight":
+            self.numOfConditions += 1
+
+        if self.hasHypertension == True:
+            self.numOfConditions += 1
+
+        if self.isAsthmatic == True or self.isSmoker == True:
+            self.numOfConditions += 1
+
+        if self.isIntubated == True:
+            self.numOfConditions += 1
+
+        if self.didRenalRT == True:
+            self.numOfConditions += 1
+
+        if self.didIntestinalSurgery == True:
+            self.numOfConditions += 1
+
+        if self.needsParenteralNutrition == True:
+            self.numOfConditions += 1
+
+    def getNumOfConditions(self):
+        return self.numOfConditions
+
+    def setReferralPriority(self):
+
+        self.setNumOfConditions()
+
+        if (self.isAsthmatic == True or self.isSmoker == True and self.getAge() > 55)\
+                or (self.getWeightClassification() == "Obese" and self.hasHypertension == True)\
+                or self.getNumOfConditions() > 2:
+            self.referralPriority = 1
+
+        elif self.getNumOfConditions() == 2:
+            self.referralPriority = 2
+
+        elif self.getNumOfConditions() < 2:
+            self.referralPriority = 3
+
+        else:
+            self.referralPriority = 4
+
+        for i in patientsList:
+            i.setReferralPriority()
+
+        for i in patientsList:
+            if i.getReferralPriority() == 1:
+                patientReferralList.append(i)
+
+        for i in patientsList:
+            if i.getReferralPriority() == 2:
+                patientReferralList.append(i)
+
+        for i in patientsList:
+            if i.getReferralPriority() == 3:
+                patientReferralList.append(i)
+
+        for i in patientsList:
+            if i.getReferralPriority() == 4:
+                patientReferralList.append(i)
 
     def getReferralPriority(self):
         return self.referralPriority
