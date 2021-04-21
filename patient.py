@@ -99,6 +99,7 @@ class Patient:
     def getBMI(self):
         return round(float(self.BMI), 1)
 
+    # Classify patients weight catigory according to their respective BMI values
     def getWeightClassification(self):
         if self.getBMI() < 18.5:
             weightClassification = "Underweight"
@@ -121,6 +122,7 @@ class Patient:
 
         return weightClassification
 
+    # Calculate the number of conditions a patients has, to be used to set referral priority
     def setNumOfConditions(self):
         if self.getWeightClassification() == "Obese" or self.getWeightClassification() == "Underweight":
             self.numOfConditions += 1
@@ -146,6 +148,7 @@ class Patient:
     def getNumOfConditions(self):
         return self.numOfConditions
 
+    # Used to refer patients to a dietitian
     def setReferralPriority(self):
 
         self.setNumOfConditions()
