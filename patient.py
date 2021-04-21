@@ -125,22 +125,22 @@ class Patient:
         if self.getWeightClassification() == "Obese" or self.getWeightClassification() == "Underweight":
             self.numOfConditions += 1
 
-        if self.hasHypertension == True:
+        if self.hasHypertension:
             self.numOfConditions += 1
 
-        if self.isAsthmatic == True or self.isSmoker == True:
+        if self.isAsthmatic is True or self.isSmoker is True:
             self.numOfConditions += 1
 
-        if self.isIntubated == True:
+        if self.isIntubated:
             self.numOfConditions += 1
 
-        if self.didRenalRT == True:
+        if self.didRenalRT:
             self.numOfConditions += 1
 
-        if self.didIntestinalSurgery == True:
+        if self.didIntestinalSurgery:
             self.numOfConditions += 1
 
-        if self.needsParenteralNutrition == True:
+        if self.needsParenteralNutrition:
             self.numOfConditions += 1
 
     def getNumOfConditions(self):
@@ -150,19 +150,13 @@ class Patient:
 
         self.setNumOfConditions()
 
-        if (self.isAsthmatic == True or self.isSmoker == True and self.getAge() > 55)\
-                or (self.getWeightClassification() == "Obese" and self.hasHypertension == True)\
+        if (self.isAsthmatic is True or self.isSmoker is True and self.getAge() > 55) \
+                or (self.getWeightClassification() is "Obese" and self.hasHypertension is True) \
                 or self.getNumOfConditions() > 2:
             self.referralPriority = 1
 
-        elif self.getNumOfConditions() == 2:
-            self.referralPriority = 2
-
-        elif self.getNumOfConditions() < 2:
-            self.referralPriority = 3
-
         else:
-            self.referralPriority = 4
+            self.referralPriority = 2
 
     def getReferralPriority(self):
         return self.referralPriority
