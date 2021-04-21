@@ -111,19 +111,21 @@ for i in patientsList:
     if i.getReferralPriority() == 1:
         patientReferralList.append(i)
 
-for i in patientsList:
-    if i.getReferralPriority() == 2:
-        patientReferralList.append(i)
+sortedList = []
+for i in range(0, len(patientReferralList)):
+    sortedList.append(patientReferralList[i])
 
-for i in patientsList:
-    if i.getReferralPriority() == 3:
-        patientReferralList.append(i)
-
-for i in patientsList:
-    if i.getReferralPriority() == 4:
-        patientReferralList.append(i)
+for i in range(len(sortedList) - 1):
+    if sortedList[i].getReferralPriority() == 2:
+        if sortedList[i].getAge() < sortedList[i + 1].getAge():
+            temp = sortedList[i + 1]
+            sortedList[i] = sortedList[i + 1]
+            sortedList[i] = temp
 
 print("Dietitian Referrals:")
 for i in patientReferralList:
-    if i.getReferralPriority() <= 3:
+    if i.getReferralPriority() == 1:
         print(i.getName())
+
+for i in sortedList:
+    print(i.getName())
