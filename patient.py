@@ -153,8 +153,8 @@ class Patient:
 
         self.setNumOfConditions()
 
-        if (self.isAsthmatic is True or self.isSmoker is True and self.getAge() > 55) \
-                or (self.getWeightClassification() is "Obese" and self.hasHypertension is True) \
+        if (self.isAsthmatic == True or self.isSmoker == True and self.getAge() > 55) \
+                or (self.getWeightClassification() == "Obese" and self.hasHypertension == True) \
                 or self.getNumOfConditions() > 2:
             self.referralPriority = 1
 
