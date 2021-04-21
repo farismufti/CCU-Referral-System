@@ -112,21 +112,23 @@ for i in patientsList:
     if i.getReferralPriority() == 1:
         patientReferralList.append(i)
 
+print("Dietitian Referrals:")
+for i in patientReferralList:
+    if i.getReferralPriority() == 1:
+        print(i.getName())
+        patientReferralList.remove(i)
+
 sortedList = []
-for i in range(0, len(patientReferralList)):
+for i in range(len(patientReferralList)):
     sortedList.append(patientReferralList[i])
 
 # Bubble sort, second priority patients oldest age to youngest
-for i in range(len(sortedList) - 1):
+for i in range(len(sortedList)):
     if sortedList[i].getReferralPriority() == 2:
         if sortedList[i].getAge() < sortedList[i + 1].getAge():
             temp = sortedList[i + 1]
             sortedList[i] = sortedList[i + 1]
             sortedList[i] = temp
 
-print("Dietitian Referrals:")
-for i in patientReferralList:
-    if i.getReferralPriority() == 1:
-        print(i.getName())
 for i in sortedList:
     print(i.getName())
