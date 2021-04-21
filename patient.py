@@ -1,6 +1,3 @@
-from main import patientsList, patientReferralList
-
-
 class Patient:
     def __init__(self, name, age, sex, height, weight, bodyBuild, isSmoker, isAsthmatic, isIntubated, hasHypertension,
                  didRenalRT, didIntestinalSurgery, needsParenteralNutrition):
@@ -166,25 +163,6 @@ class Patient:
 
         else:
             self.referralPriority = 4
-
-        for i in patientsList:
-            i.setReferralPriority()
-
-        for i in patientsList:
-            if i.getReferralPriority() == 1:
-                patientReferralList.append(i)
-
-        for i in patientsList:
-            if i.getReferralPriority() == 2:
-                patientReferralList.append(i)
-
-        for i in patientsList:
-            if i.getReferralPriority() == 3:
-                patientReferralList.append(i)
-
-        for i in patientsList:
-            if i.getReferralPriority() == 4:
-                patientReferralList.append(i)
 
     def getReferralPriority(self):
         return self.referralPriority
