@@ -3,7 +3,6 @@ from patient import Patient
 from datetime import date
 
 fileName = "DADSA 2021 CWK B DATA COLLECTION.csv"
-patientData = []
 patientsList = []
 obeseMalesList = []
 obeseFemalesList = []
